@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title> Javascript Calculator </title>
+   <body>
+	<header><h1> Colorful Calculator using JavaScript </h1></header>
+	
+
+	<form name="calc">
+	<p>
+		X <input type="text" value="0" name="x" id="x"> 
+		<select name="operation" id="operation">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		Y <input type="text" value="0" name="y" id="y">
+		<input type="button" value="=" name="getResult" id="getResult" onClick="calculate()">
+		<input type="text" value="0" name="Result" id="Result"> <br>
+		<br><br>
+		<input type="button" value="reset" name="reset" id="reset" onClick="clearAll()">
+		<br><br>
+		<label> Background Color: 
+		<select name="mybgcolor" id="mybgcolor" onChange="changeColor()">
+			<option value="red">Red</option>
+			<option value="yellow">Yellow</option>
+			<option value="blue">Blue</option>
+			<option value="green">Green</option>
+			<option value="white">White</option>
+		</select>
+		</label>
+	</p>
+	</form>
+	
+	<script>
+		var bgcolour;
+		bgcolour = prompt("What is your favourite colour?");
+		document.body.style.backgroundColor = bgcolour;
+		
+		function changeColor() {
+		
+          var color = document.getElementById("mybgcolor").value;
+
+			
+			switch (color)
+			{
+				case "red":
+					red();
+					break;
+					
+				case "yellow":
+					yellow();
+					break;
+					
+				case "blue":
+					blue();
+					break;
+				
+				case "green":
+					green();
+					break;
+				
+				case "white":
+					white();
+					break;
+				default:
+					break;
+			}
+			
+		}
+		
+		//Depend on the case, corresponding color function is executed
+		function red() {
+			document.getElementById("mybgcolor").value = document.body.style.backgroundColor="red";
+		} 
+		function yellow() {
+			document.getElementById("mybgcolor").value = document.body.style.backgroundColor="yellow";
+		} 
+			
+			
+		function blue() {
+			document.getElementById("mybgcolor").value = document.body.style.backgroundColor="blue";
+		} 
+		
+		function green() {
+			document.getElementById("mybgcolor").value = document.body.style.backgroundColor="green";
+		} 
+		
+		function white() {
+			document.getElementById("mybgcolor").value = document.body.style.backgroundColor="white";
+		} 
+	</script>
+</body>
+   <script type="text/javascript">
+   
+		function calculate()
+		{
+
+			var selectedValue=document.getElementById("operation").value;
+			
+			// Depend on the value of the selected operation,
+			// we will call the respective function accordingly.
+			switch (selectedValue)
+			{
+				case "+":
+					addNumber();
+					break;
+					
+				case "-":
+					subNumber();
+					break;
+					
+				case "*":
+					mulNumber();
+					break;
+					
+				case "/":
+					divNumber();
+					break;	
+				default:
+					break;
+			}
+			
+		}
+		
+		// Reset the value of all the text field to 0
+		function clearAll() {
+			document.getElementById("x").value = 0;
+			document.getElementById("y").value = 0;
+			document.getElementById("Result").value = 0;
+			theForm.Result.value = 0;
+		} // End clearAll
+
+		// Add x and y values together and display it in Result text field.
+		function addNumber() {
+			document.getElementById("Result").value = parseInt(document.getElementById("x").value) + parseInt(document.getElementById("y").value);
+		} // End addNumber
+			
+		// Subtract x by y values and display it in Result text field.	
+		function subNumber() {
+			document.getElementById("Result").value = parseInt(document.getElementById("x").value) - parseInt(document.getElementById("y").value);
+		} // End subNumber
+		
+		// Multiply x by y values and display it in Result text field.		
+		function mulNumber() {
+			document.getElementById("Result").value = parseInt(document.getElementById("x").value) * parseInt(document.getElementById("y").value);
+		} // End mulNumber
+		
+		// Divide x by y values and display it in Result text field.
+		function divNumber() {
+			document.getElementById("Result").value = parseInt(document.getElementById("x").value) / parseInt(document.getElementById("y").value);
+		} // End divNumber
+
+		
+   </script>
+</head>
+
+
+</html>
